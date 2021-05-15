@@ -12,10 +12,15 @@
     </div>
  <script>
  class Horse{
-    constructor(colour){
+    constructor(colour,number){
         this.colour = colour
+        this.number = number
         //style='width:100px;height:100px;position:relative'
         this.box = document.createElement("div")
+        let label = document.createElement("p")
+        label.innerText = number + 1
+        this.box.appendChild(label)
+        this.box.classList.add('horse')
         this.box.style='width:100px;height:100px;position:relative'
         document.getElementById('track').appendChild(this.box)
         this.box.style.backgroundColor=colour
@@ -32,7 +37,7 @@
  let winner = null
  colors = ['red','orange','yellow','white','blue','indigo','violet','black','brown','pink','azure']
  for (let h=0;h<8;h++){
-    horses[h] = new Horse(colors[h])
+    horses[h] = new Horse(colors[h],h)
  }
 function start(){
     //setInterval (moveBox,50)
@@ -46,7 +51,7 @@ function start(){
             requestAnimationFrame(moveHorses)
         }
         else{
-            alert(`The winner is ${winner.colour}`)        
+            alert(`The winner is ${winner.number+1} ${winner.colour}`)        
         }
         /*
         if(x<900){
