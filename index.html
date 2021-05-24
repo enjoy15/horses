@@ -15,11 +15,14 @@
     constructor(colour,number){
         this.colour = colour
         this.number = number
+        const image = document.createElement('img')
+        image.src  = '/horse.jpg'
         //style='width:100px;height:100px;position:relative'
         this.box = document.createElement("div")
         let label = document.createElement("p")
         label.innerText = number + 1
         this.box.appendChild(label)
+        this.box.appendChild(image)
         this.box.classList.add('horse')
         this.box.style='width:100px;height:100px;position:relative'
         document.getElementById('track').appendChild(this.box)
